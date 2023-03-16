@@ -27,6 +27,7 @@
     ]
   },
   "repository": "github:unrevealedtech/unrevealed-vscode",
+  "license": "MIT",
   "scripts": {
     "vscode:prepublish": "pnpm run package",
     "compile": "webpack",
