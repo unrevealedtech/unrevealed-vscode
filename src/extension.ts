@@ -81,7 +81,7 @@ export async function activate(context: vscode.ExtensionContext) {
             }
 
             const imageUrl = context.asAbsolutePath(
-              `resources/${feature.featureStage.icon
+              `resources/icons/${feature.featureStage.icon
                 .replace('_', '-')
                 .toLowerCase()}-${feature.featureStage.color.replace(
                 '#',
