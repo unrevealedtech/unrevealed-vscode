@@ -1,6 +1,7 @@
 import * as tsutils from 'tsutils';
 import * as ts from 'typescript';
 import * as vscode from 'vscode';
+import { readToken } from './auth';
 import { Configs, loadConfigs } from './config';
 
 const languages = [
@@ -11,10 +12,14 @@ const languages = [
 ];
 
 export async function activate(context: vscode.ExtensionContext) {
+  let token: string | null = null;
   let configs: Configs = {};
 
   async function load() {
-    configs = await loadConfigs();
+    token = await readToken();
+    if (token) {
+      configs = await loadConfigs(token);
+    }
   }
 
   context.subscriptions.push(

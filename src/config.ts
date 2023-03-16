@@ -1,27 +1,7 @@
-import appDirs from 'appdirsjs';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { fetchProduct, ProductQueryResult } from './graphql';
-
-const dataDir = appDirs({ appName: 'unrevealed' }).data;
-const globalConfigFile = path.join(dataDir, 'config.json');
-
-export async function readToken() {
-  try {
-    const globalConfig = await fs.readJSON(globalConfigFile);
-    return globalConfig.token;
-  } catch (err) {
-    vscode.window
-      .showErrorMessage('Unrevealed: unauthorized', 'Login')
-      .then((selection) => {
-        if (selection === 'Login') {
-          vscode.window.showInformationMessage('LOGIN');
-        }
-      });
-    return null;
-  }
-}
 
 type Product = ProductQueryResult['product'];
 export interface Config {
@@ -29,12 +9,7 @@ export interface Config {
 }
 export type Configs = Record<string, Config>;
 
-export async function loadConfigs(): Promise<Configs> {
-  const token = await readToken();
-  if (!token) {
-    return {};
-  }
-
+export async function loadConfigs(token: string): Promise<Configs> {
   const configFiles = await vscode.workspace.findFiles(
     '**/unrevealed.config.json',
     '**/.git,**/node_modules',
