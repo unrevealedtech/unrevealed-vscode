@@ -4,13 +4,20 @@
   "description": "VS Code extension for Unrevealed",
   "publisher": "unrevealed",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "icon": "resources/unrevealed-logo.png",
   "engines": {
     "vscode": "^1.76.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "unrevealed",
+    "feature flag",
+    "feature toggle",
+    "feature switch",
+    "release"
   ],
   "activationEvents": [
     "onLanguage:javascript",
