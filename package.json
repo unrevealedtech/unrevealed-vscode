@@ -3,6 +3,7 @@
   "displayName": "Unrevealed",
   "description": "VS Code extension for Unrevealed",
   "publisher": "unrevealed",
+  "private": true,
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.76.0"
