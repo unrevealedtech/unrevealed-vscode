@@ -1,4 +1,8 @@
-<div style="text-align:center"><img src="resources/unrevealed-logo.png" alt="Unrevealed logo" /></div>
+<p align="center">
+  <a href="https://unrevealed.tech">
+    <img width="256" src="resources/unrevealed-logo.png">
+  </a>
+</p>
 
 # Unrevealed
 
