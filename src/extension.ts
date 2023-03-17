@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { readToken } from './auth';
+import { login, readToken } from './auth';
 import { Configs, loadConfigs } from './config';
 import { featureHoverProvider } from './featureHoverProvider';
 
@@ -24,6 +24,12 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand('unrevealed-vscode.reload', async () => {
       await load();
+    }),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('unrevealed-vscode.login', async () => {
+      await login();
     }),
   );
 

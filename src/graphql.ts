@@ -1,7 +1,6 @@
 import { gql, GraphQLClient } from 'graphql-request';
 import * as vscode from 'vscode';
-
-export const API_URL = 'https://api.unrevealed.tech/graphql';
+import { API_URL } from './constants';
 
 const PRODUCT_QUERY = gql`
   query Product($productId: ID!) {
