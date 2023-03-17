@@ -24,7 +24,7 @@ export async function readToken() {
       )
       .then((selection) => {
         if (selection === 'Login') {
-          vscode.window.showInformationMessage('LOGIN');
+          return login();
         }
       });
     return null;
