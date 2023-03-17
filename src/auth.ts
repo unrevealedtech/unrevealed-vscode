@@ -37,6 +37,7 @@ export async function login() {
 
     await writeToken(token);
 
+    vscode.window.showInformationMessage('Unrevealed: Successfully logged in!');
     return token;
   } catch (err) {
     console.debug(err);
