@@ -46,19 +46,14 @@ export async function fetchProduct(productId: string, token: string) {
     },
   });
 
-  try {
-    const { product } = await graphqlClient.request<ProductQueryResult>(
-      PRODUCT_QUERY,
-      {
-        productId,
-      },
-    );
-    return product;
-  } catch (err) {
-    let message = 'Unrevealed: could not fetch product';
-    vscode.window.showErrorMessage(message);
-    return null;
-  }
+  const { product } = await graphqlClient.request<ProductQueryResult>(
+    PRODUCT_QUERY,
+    {
+      productId,
+    },
+  );
+
+  return product;
 }
 
 const FEATURE_QUERY = gql`
@@ -109,7 +104,7 @@ export async function fetchFeature(featureId: string, token: string) {
     );
     return feature;
   } catch (err) {
-    console.log(err);
+    console.debug(err);
     vscode.window.showErrorMessage(
       `Unrevealed: could not fetch feature ${featureId}`,
     );

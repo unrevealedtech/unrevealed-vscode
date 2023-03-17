@@ -11,8 +11,12 @@ export async function readToken() {
     const globalConfig = await fs.readJSON(globalConfigFile);
     return globalConfig.token;
   } catch (err) {
+    console.debug(err);
     vscode.window
-      .showErrorMessage('Unrevealed: unauthorized', 'Login')
+      .showErrorMessage(
+        'Unrevealed: unauthorized. Login to start using the extension',
+        'Login',
+      )
       .then((selection) => {
         if (selection === 'Login') {
           vscode.window.showInformationMessage('LOGIN');

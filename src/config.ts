@@ -9,11 +9,20 @@ export interface Config {
 }
 export type Configs = Record<string, Config>;
 
+async function findConfigFiles() {
+  try {
+    return await vscode.workspace.findFiles(
+      '**/unrevealed.config.json',
+      '**/.git,**/node_modules',
+    );
+  } catch (err) {
+    console.debug(err);
+    return [];
+  }
+}
+
 export async function loadConfigs(token: string): Promise<Configs> {
-  const configFiles = await vscode.workspace.findFiles(
-    '**/unrevealed.config.json',
-    '**/.git,**/node_modules',
-  );
+  const configFiles = await findConfigFiles();
 
   const configs: Record<string, { product: ProductQueryResult['product'] }> =
     {};
@@ -27,17 +36,16 @@ export async function loadConfigs(token: string): Promise<Configs> {
         const product = await fetchProduct(productId, token);
 
         if (!product) {
-          vscode.window.showErrorMessage(
-            `Error loading config at ${configFile.path}`,
-          );
           return;
         }
 
         configs[path.dirname(configFile.path)] = { product };
       } catch (err) {
+        console.debug(err);
         vscode.window.showErrorMessage(
-          `Error loading config at ${configFile.path}`,
+          `Unrevealed: Error loading config at ${configFile.path}`,
         );
+        return null;
       }
     }),
   );
