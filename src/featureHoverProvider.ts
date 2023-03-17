@@ -62,7 +62,7 @@ export async function featureHoverProvider(
   );
 
   const content = new vscode.MarkdownString(
-    `**${feature.name}** (${feature.featureStage.name}<img src="${imageUrl}" />)`,
+    `**${feature.name}** - ${feature.featureStage.name} <img src="${imageUrl}" />`,
   );
   if (feature.description) {
     content.appendMarkdown(`\n\n${feature.description}`);
