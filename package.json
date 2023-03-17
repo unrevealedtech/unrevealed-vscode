@@ -4,7 +4,7 @@
   "description": "VS Code extension for Unrevealed",
   "publisher": "unrevealed",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "icon": "resources/unrevealed-logo.png",
   "engines": {
     "vscode": "^1.76.0"
