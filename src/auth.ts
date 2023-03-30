@@ -92,11 +92,11 @@ function getToken(): Promise<string> {
         reject(new Error('Login cancelled'));
       }
     });
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
       if (server.listening) {
         server.close();
       }
-    }, 1000);
+    }, 60000);
   });
 
   vscode.window.withProgress(
