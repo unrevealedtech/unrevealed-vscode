@@ -1,8 +1,8 @@
 # Unrevealed
 
-[Unrevealed](https://unrevealed.tech) is the feature management solution for developers who want to deliver more value to their customers, and worry less about their feature flags.
+[Unrevealed](https://unrevealed.tech) is a workflow based feature management solution that makes developing, testing and releasing features a smooth ride.
 
-This VS Code extension adds context to your features directly into your codebase.
+This VS Code extension adds context about the state of your features directly into your codebase.
 
 ![Hover example](resources/hover-example.gif)
 
@@ -12,11 +12,11 @@ This extension needs to connect to Unrevealed to work properly.
 
 1. Login to Unrevealed
 
-Open the command palette (`cmd + shift + p`), search for `Unrevealed` and select `Unrevealed: Login`
+Open the command palette (`cmd + shift + p`), search for `Unrevealed` and select `Unrevealed: Login`.
 
 2. Configure your workspace
 
-This extension relies on `unrevealed.config.json` to load your features. You can use the [Unrevealed CLI](https://www.npmjs.com/package/unrev) to generate it for the first time
+This extension relies on `unrevealed.config.json` to load your features. You can use the [Unrevealed CLI](https://www.npmjs.com/package/unrev) to generate it for the first time.
 
 ```bash
 npx unrev init
