@@ -65,10 +65,14 @@ export async function featureHoverProvider(
 
   content.supportHtml = true;
 
-  content.appendMarkdown(`**${feature.name}** - `);
   content.appendMarkdown(
-    `<span style="color:#000;background-color:${feature.featureStage.color};">&nbsp;**${feature.featureStage.name}**&nbsp;</span>`,
+    `**${feature.name}** - **${feature.featureStage.name}**`,
   );
+
+  content.appendMarkdown(
+    `<span style="color:${feature.featureStage.color};">&nbsp;■</span>`,
+  );
+
   if (feature.description) {
     content.appendMarkdown(`\n\n${feature.description}`);
   }
