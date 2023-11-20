@@ -61,8 +61,13 @@ export async function featureHoverProvider(
       .toLowerCase()}-${feature.featureStage.color.replace('#', '')}.svg`,
   );
 
-  const content = new vscode.MarkdownString(
-    `**${feature.name}** - ${feature.featureStage.name} <img src="${imageUrl}" />`,
+  const content = new vscode.MarkdownString();
+
+  content.supportHtml = true;
+
+  content.appendMarkdown(`**${feature.name}** - `);
+  content.appendMarkdown(
+    `<span style="color:#000;background-color:${feature.featureStage.color};">&nbsp;**${feature.featureStage.name}**&nbsp;</span>`,
   );
   if (feature.description) {
     content.appendMarkdown(`\n\n${feature.description}`);
